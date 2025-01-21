@@ -103,3 +103,15 @@ class Solution {
         return (length%2==1) ? slow.data:slow.next.data;
     }
 }
+//delete alternate node in linked list
+class Solution {
+    public void deleteAlt(Node head) {
+        // Code Here
+        Node Temp=head;
+        while(Temp!=null &&Temp.next!=null){
+            
+            Temp.next=Temp.next.next;
+            Temp=Temp.next;
+        }
+    }
+}
