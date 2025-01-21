@@ -115,3 +115,13 @@ class Solution {
         }
     }
 }
+//The condition while (Temp != null && Temp.next != null) is crucial to avoid errors and ensure the program correctly processes the linked list. Let’s break it down step by step in simple terms:
+// Why Temp != null?
+// This checks if the current node (Temp) exists.
+// If Temp == null, it means we have reached the end of the list, and there are no more nodes to process.
+// Without this check, the loop would try to access Temp.next, causing a NullPointerException because Temp no longer points to a valid node.
+
+// Why Temp.next != null?
+// This checks if the next node exists.
+// Remember, we are trying to skip nodes by updating Temp.next. For this operation (Temp.next = Temp.next.next) to work, there must be a valid node after the current one.
+// If Temp.next == null, it means we are at the last node of the list, and there is no next node to skip. Continuing in such a case would lead to errors.
