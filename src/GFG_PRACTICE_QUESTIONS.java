@@ -84,3 +84,22 @@ class Solution {
         return ans;
     }
 }
+
+class Solution {
+    int getMiddle(Node head) {
+        // Your code here.
+        Node fast=head;
+        Node slow=head;
+        int length=0;
+       Node Temp=head;
+        while(Temp!=null){
+            length++;
+            Temp=Temp.next;
+        }
+        while(fast!=null && fast.next!=null && fast.next.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+        }
+        return (length%2==1) ? slow.data:slow.next.data;
+    }
+}
