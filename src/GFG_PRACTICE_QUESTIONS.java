@@ -52,3 +52,35 @@ class Solution {
         return head;
     }
 }
+
+class Solution {
+    // Function to check whether two linked lists are identical or not.
+    public boolean areIdentical(Node head1, Node head2) {
+        // write your code here
+        Node t1=head1;
+        Node t2=head2;
+        while(t1!=null && t2!=null){
+            if(t1.data!=t2.data) return false;
+            t1=t1.next;
+            t2=t2.next;
+        }
+        return true;
+    }
+}
+
+class Solution {
+    public int modularNode(Node head, int k) {
+        // Code here//Position this line where user code will be pasted.
+        int length=0,ans=-1;
+        Node Temp=head;
+        while(Temp!=null){
+             length++;
+            if(length%k==0){
+                ans=Temp.data;
+            }
+            Temp=Temp.next;
+           
+        }
+        return ans;
+    }
+}
