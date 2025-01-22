@@ -1,3 +1,4 @@
+//Basic And Easy level problem of linked list from gfg
 /*
 class Node{
     int data;
