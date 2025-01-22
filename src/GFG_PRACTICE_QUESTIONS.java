@@ -188,3 +188,15 @@ class Solution {
         return head;
     }
 }
+
+//Delete node without head pointer
+class Solution {
+    void deleteNode(Node node) {
+        // Your code here
+        if(node.next==null){
+            node=null;
+        }
+        node.data=node.next.data;
+        node.next=node.next.next;
+    }
+}
