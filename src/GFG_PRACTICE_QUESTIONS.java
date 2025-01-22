@@ -125,3 +125,26 @@ class Solution {
 // This checks if the next node exists.
 // Remember, we are trying to skip nodes by updating Temp.next. For this operation (Temp.next = Temp.next.next) to work, there must be a valid node after the current one.
 // If Temp.next == null, it means we are at the last node of the list, and there is no next node to skip. Continuing in such a case would lead to errors.
+
+class Solution {
+
+    // Function to find the data of kth node from
+    // the end of a linked list.
+    int getKthFromLast(Node head, int k) {
+        // Your code here
+        if(head==null) return -1;
+        Node temp=head;
+        int length=0;
+        while(temp!=null){
+            temp=temp.next;
+            length++;
+        }
+        if(k>length) return -1;
+        int EleIndex=length-k;
+       temp=head;
+        for(int i=0;i<EleIndex;i++){
+            temp=temp.next;
+        }
+        return temp.data;
+    }
+}
