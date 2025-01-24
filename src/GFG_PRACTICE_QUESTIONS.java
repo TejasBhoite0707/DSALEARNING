@@ -240,3 +240,26 @@ class Solution {
         return prevNode;
     }
 }
+
+
+// Given the head, the head of a singly linked list, Returns true if the linked list is circular & false if it is not circular.
+
+// A linked list is called circular if it is not NULL terminated and all nodes are connected in the form of a cycle. 
+
+// Note: The linked list does not contain any inner loop.
+class Solution {
+    boolean isCircular(Node head) {
+        // Your code here
+        if(head==null){
+            return false;
+        }
+        Node Temp=head;
+        while(Temp!=null){
+            if(Temp.next==head){
+                return true;
+            }
+            Temp=Temp.next;
+        }
+        return false;
+    }
+}
