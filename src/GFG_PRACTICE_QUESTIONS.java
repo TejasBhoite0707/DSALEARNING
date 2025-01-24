@@ -200,3 +200,43 @@ class Solution {
         node.next=node.next.next;
     }
 }
+// Given a singly linked list, remove all nodes that have a node with a greater value anywhere to their right in the list. Return the head of the modified linked list.
+
+// Examples:
+
+// Input:
+// LinkedList = 12->15->10->11->5->6->2->3
+// Output: 15->11->6->3
+class Solution {
+    Node compute(Node head) {
+        // your code here
+        head=ReverseList(head);//reverse the currentList
+        Node Temp=head;
+        while(Temp!=null && Temp.next!=null){
+            if(Temp.data>Temp.next.data){
+                Temp.next=Temp.next.next;
+            }
+            else{
+                Temp=Temp.next;
+            }
+        }
+        return ReverseList(head);
+    }
+    
+    Node ReverseList(Node head){
+        if(head==null || head.next==null){
+            return head;
+        }
+        Node prevNode=null;
+        Node currNode=head;
+        while(currNode!=null){
+            Node nextNode=currNode.next;//Next Node Preservation
+            currNode.next=prevNode;
+            
+            //update the nodes
+            prevNode=currNode;//previous node becomes the current node
+            currNode=nextNode;//current becomes nextNode
+        }
+        return prevNode;
+    }
+}
