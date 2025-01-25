@@ -294,3 +294,54 @@ class Solution {
        return head;
     }
 }
+
+class Solution {
+    public long multiplyTwoLists(Node first, Node second) {
+        // Code here
+        ArrayList<Long> l1=new ArrayList<>();
+        ArrayList<Long> l2=new ArrayList<>();
+        Node Temp1=first;
+        Node Temp2=second;
+        while(Temp1!=null){
+             l1.add(Temp1.data);
+             Temp1=Temp1.next;
+        }
+        while(Temp2!=null){
+            l2.add(Temp2.data);
+            Temp2=Temp2.next;
+        }
+        String s1="",s2="";
+       for(long ele1:l1){
+           s1=s1+ele1;
+       }
+        for(long ele2:l2){
+           s2=s2+ele2;
+       }
+       long FistNum=Long.parseLong(s1);
+       long SecNNum=Long.parseLong(s2);
+       long product=1;
+       product=FistNum*SecNNum;
+       return product;
+    }
+}
+
+
+class Solution {
+    // Function to remove duplicates from sorted linked list.
+    Node removeDuplicates(Node head) {
+        // Your code here
+        if(head==null && head.next==null){
+            return head;
+        }
+        Node Temp=head;
+        while(Temp!=null && Temp.next!=null){
+            if(Temp.data==Temp.next.data){
+                Temp.next=Temp.next.next;
+            }
+            else{
+                Temp=Temp.next;
+            }
+        }
+        return head;
+    }
+}
