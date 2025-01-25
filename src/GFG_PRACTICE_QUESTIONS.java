@@ -345,3 +345,24 @@ class Solution {
         return head;
     }
 }
+
+class Solution {
+    // Function to remove duplicates from unsorted linked list.
+    public Node removeDuplicates(Node head) {
+        // Your code here
+        HashSet<Integer> set=new HashSet<>();
+        Node Curr=head;
+        Node Prev=null;
+        while(Curr!=null){
+            if(set.contains(Curr.data)){
+                Prev.next=Curr.next;
+            }
+            else{
+                set.add(Curr.data);
+                Prev=Curr;
+            }
+            Curr=Curr.next;
+        }
+        return head;
+    }
+}
