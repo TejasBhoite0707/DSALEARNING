@@ -366,3 +366,53 @@ class Solution {
         return head;
     }
 }
+
+//Addition of two list and print  its result
+class Solution {
+    
+    static Node addTwoLists(Node num1, Node num2) {
+        // code here
+        Node l1= ReverseList(num1);
+        Node l2= ReverseList(num2);
+        Node curr=null;
+        int carry=0;
+        while(l1!=null || l2!=null || carry>0){
+            int v1=l1!=null?l1.data:0;
+            int v2=l2!=null?l2.data:0;
+            int sum=v1+v2+carry;
+            carry=sum/10;
+            Node Temp=new Node(sum%10);
+            Temp.next=curr;
+            curr=Temp;
+            if(l1!=null){
+                l1=l1.next;
+            }
+            if(l2!=null){
+                l2=l2.next;
+            }
+            
+        }
+        while(curr.data==0 && curr!=null){
+                curr=curr.next;
+            }
+        return curr;
+    }
+    
+      static Node ReverseList(Node head){
+            Node prev=null;
+            Node curr=head;
+            if(head==null && head.next==null){
+                return head;
+            }
+            while(curr!=null){
+                Node nextNode=curr.next;
+                curr.next=prev;
+            
+                prev=curr;
+                curr=nextNode;
+                
+            }
+            return prev;
+        }
+       
+}
