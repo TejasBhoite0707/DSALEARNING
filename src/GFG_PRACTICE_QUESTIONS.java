@@ -416,3 +416,32 @@ class Solution {
         }
        
 }
+
+// Given the head of two sorted linked lists consisting of nodes respectively. The task is to merge both lists and return the head of the sorted merged list.
+// Examples:
+// Input: head1 = 5 -> 10 -> 15 -> 40, head2 = 2 -> 3 -> 20
+// Output: 2 -> 3 -> 5 -> 10 -> 15 -> 20 -> 40
+class Solution {
+    Node sortedMerge(Node head1, Node head2) {
+        // code here
+        Node Temp1=head1;
+        Node Temp2=head2;
+        ArrayList<Integer> resultList=new ArrayList<>();
+        while(Temp1!=null){
+            resultList.add(Temp1.data);
+            Temp1=Temp1.next;
+        }
+        while(Temp2!=null){
+            resultList.add(Temp2.data);
+            Temp2=Temp2.next;
+        }
+        Collections.sort(resultList);
+        Node ans=new Node(resultList.get(0));
+        Node curr=ans;
+        for(int i=1;i<resultList.size();i++){
+         curr.next=new Node(resultList.get(i));
+         curr=curr.next;
+        }
+        return ans;
+    }
+}
