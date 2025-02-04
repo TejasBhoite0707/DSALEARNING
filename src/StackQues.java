@@ -29,3 +29,22 @@ class Solution {
         return st;
     }
 }
+
+//Reverse String using Stack
+class Solution {
+    
+    public String reverse(String S){
+        //code here
+        String Answer="";
+        Stack<Character>newStack=new Stack<>();
+        for(int i=0;i<S.length();i++){
+            newStack.push(S.charAt(i));
+        }
+       while(!newStack.isEmpty()){
+           char ch=newStack.pop();
+           Answer+=ch;
+       }
+       return Answer;
+    }
+
+}
