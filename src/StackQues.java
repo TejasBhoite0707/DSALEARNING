@@ -62,12 +62,8 @@ class Solution
             int topele=s.pop();
             reverse(s);
             insertAtBottom(topele,s);
-            
-        }
-        
-        
-    }
-    
+        } 
+    }  
     static void insertAtBottom(int data,Stack<Integer> s){
         if(s.isEmpty()){
             s.push(data);
@@ -77,6 +73,5 @@ class Solution
             insertAtBottom(data,s);
             s.push(top);
         }
-    }
-    
+    }   
 }
