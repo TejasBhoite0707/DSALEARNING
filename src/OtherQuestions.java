@@ -24,3 +24,34 @@ class Solution {
         return result;
     }
 }
+
+// Summary of How This Happens:
+// After backtracking, we are at the state curr = "A" and visit = [true, false, false].
+// The for-loop runs from i = 0 to i = 2.
+// The second iteration (i = 1) tries to pick "B", but we have already backtracked from it, so we skip this and move to the next iteration.
+// The third iteration (i = 2) picks "C" because it is the next available character.
+// This process ensures that we exhaust all possible combinations and explore every character order.
+
+class Solution {
+    public ArrayList<String> findPermutation(String s) {
+        // Code here
+        HashSet<String> ans=new HashSet<>();
+        boolean[] visit=new boolean[s.length()];
+        makePermutations(s,ans,"",visit);
+        return new ArrayList(ans);
+    }
+    
+    static void makePermutations(String s,HashSet<String> ans,String curr,boolean[] visit){
+        if(curr.length()==s.length()){
+            ans.add(curr);
+            return;
+        }
+        for(int i=0;i<s.length();i++){
+            if(!visit[i]){
+                visit[i]=true;
+                makePermutations(s,ans,curr+s.charAt(i),visit);
+                visit[i]=false;
+            }
+        }
+    }
+}
