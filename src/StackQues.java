@@ -48,3 +48,35 @@ class Solution {
     }
 
 }
+
+//You are given a stack St. You have to reverse the stack using recursion.
+class Solution
+{ 
+    static void reverse(Stack<Integer> s)
+    {
+        // add your code here
+        if(s.isEmpty()){
+            return;
+        }
+        else{
+            int topele=s.pop();
+            reverse(s);
+            insertAtBottom(topele,s);
+            
+        }
+        
+        
+    }
+    
+    static void insertAtBottom(int data,Stack<Integer> s){
+        if(s.isEmpty()){
+            s.push(data);
+        }
+        else{
+            int top=s.pop();
+            insertAtBottom(data,s);
+            s.push(top);
+        }
+    }
+    
+}
