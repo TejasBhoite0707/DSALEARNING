@@ -75,3 +75,44 @@ class Solution
         }
     }   
 }
+
+// Given a string s, composed of different combinations of '(' , ')', '{', '}', '[', ']', verify the validity of the arrangement.
+// An input string is valid if:
+
+//          1. Open brackets must be closed by the same type of brackets.
+//          2. Open brackets must be closed in the correct order.
+
+// Examples :
+// Input: s = "[{()}]"
+// Output: true
+// Explanation: All the brackets are well-formed.
+
+class Solution {
+    // Function to check if brackets are balanced or not.
+    static boolean isParenthesisBalanced(String s) {
+        // code here
+        Stack<Character>stack=new Stack<>();
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+            
+            if(ch=='{' || ch=='[' || ch=='('){
+                stack.push(ch);
+            }
+            else if(stack.isEmpty()){  //essential to this input s=")("
+                return false;
+            }
+            else{
+                if(ch=='}'){
+                    if(stack.pop()!='{') return false;
+                }
+                if(ch==']'){
+                    if(stack.pop()!='[') return false;
+                }
+                if(ch==')'){
+                    if(stack.pop()!='(') return false;
+                }
+            }
+        }
+        return stack.isEmpty();
+    }
+}
