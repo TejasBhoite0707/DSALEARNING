@@ -166,3 +166,20 @@ class MyStack {
         return topele;
     }
 }
+
+//get minimum element from the stack
+	public int min(Stack<Integer> s)
+        {
+           //add code here.
+           int Min=Integer.MAX_VALUE;
+           Stack<Integer> temp=new Stack<>();
+           while(!s.isEmpty()){
+              int top= s.pop();
+              Min=Math.min(Min,top);
+              temp.push(top);
+           }
+           while(!temp.isEmpty()){
+               s.push(temp.pop());
+           }
+           return Min;
+	}
