@@ -89,3 +89,28 @@ class Solution {
         return FinalAns;
     }
 };
+//String Manipulation
+// Tom is a string freak. He has got sequences of words arr[] to manipulate. If in a sequence, two same words come together then Tom destroys each other. Find the number of words left in the sequence after this pairwise destruction. 
+// Examples:
+// Input: arr[] = ["ab", "aa", "aa", "bcd", "ab"]
+// Output: 3
+// Explanation: After the first iteration, we'll have: ab bcd ab. We can't further destroy more strings and hence we stop and the result is 3. 
+class Solution {
+    static int removeConsecutiveSame(String[] arr) {
+        // Your code goes here
+        Stack<String>stackans=new Stack<>();
+        for(String ele:arr){
+            if(stackans.isEmpty()){
+                stackans.push(ele);
+            }
+            else if(ele.equals(stackans.peek()))
+            {
+                stackans.pop();
+            }
+            else{
+                stackans.push(ele);
+            }
+        }
+        return stackans.size();
+    }
+}
