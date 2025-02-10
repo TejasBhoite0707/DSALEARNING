@@ -60,3 +60,32 @@ class Solution
         return ans;
     }
 }
+
+// Print Bracket Number
+// Given a string str, the task is to find the bracket numbers, i.e., for each bracket in str, return i if the bracket is the ith opening or closing bracket to appear in the string. 
+//  Examples:
+// Input:  str = "(aa(bdc))p(dee)"
+// Output: 1 2 2 1 3 3
+// Explanation: The highlighted brackets in
+// the given string (aa(bdc))p(dee) are
+// assigned the numbers as: 1 2 2 1 3 3.
+
+class Solution {
+    ArrayList<Integer> bracketNumbers(String str) {
+        // code here
+        int count=0;
+        ArrayList<Integer>FinalAns=new ArrayList<>();
+        Stack<Integer>bracketStack=new Stack<>();
+        for(char ch:str.toCharArray()){
+            if(ch=='('){
+                count++;
+                bracketStack.push(count);
+                FinalAns.add(count);
+            }
+            else if(ch==')'){
+                FinalAns.add(bracketStack.pop());
+            }
+        }
+        return FinalAns;
+    }
+};
