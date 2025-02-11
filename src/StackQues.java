@@ -253,3 +253,32 @@ class Solution {
         return new ArrayList<>(stack);
     }
 }
+
+// Delete Mid of a Stack
+// Input: s = [10, 20, 30, 40, 50]
+// Output: [10, 20, 40, 50]
+// Explanation: The bottom-most element will be 10 and the top-most element will be 50. Middle element will be element at index 3 from bottom, which is 30. Deleting 30, stack will look like {10 20 40 50}.
+
+class Solution {
+    // Function to delete middle element of a stack.
+    public void deleteMid(Stack<Integer> s) {
+        // code here
+        Stack<Integer>stack=new Stack<>();
+        int currIndex=0;
+        int midEleIndex=s.size()/2;
+        while(!s.isEmpty()){
+            if(currIndex!=midEleIndex){
+                stack.push(s.pop());
+               
+            }
+            else{
+                s.pop();
+            }
+            currIndex++;
+        }
+       
+        while(!stack.isEmpty()){
+            s.push(stack.pop());
+        }
+    }
+}
