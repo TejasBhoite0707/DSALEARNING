@@ -282,3 +282,65 @@ class Solution {
         }
     }
 }
+// Removing consecutive duplicates - 2
+// You are given string s. You need to remove the pair of duplicates.
+// Note: The pair should be of adjacent elements and after removing a pair the remaining string is joined together. 
+// Examples:
+// Input: s = "aaabbaaccd"
+// Output: ad
+// Explanation: 
+// Remove (aa)abbaaccd =>abbaaccd
+// Remove a(bb)aaccd => aaaccd
+// Remove (aa)accd => accd
+// Remove a(cc)d => ad
+class Solution {
+    // Function to remove pair of duplicates from given string using Stack.
+    public static String removePair(String s) {
+        // your code here
+        Stack<Character>stack=new Stack<>();
+        String ans="";
+        stack.push(s.charAt(0));
+        for(int i=1;i<s.length();i++){
+            char ch=s.charAt(i);
+            if( !stack.isEmpty() && ch==stack.peek()){
+                stack.pop();
+            }
+            else{
+                stack.push(ch);
+            }
+        }
+        while(!stack.isEmpty()){
+            ans+=stack.pop();
+        }
+        String lastAns="";
+        for(int j=ans.length()-1;j>=0;j--){
+            lastAns+=ans.charAt(j);
+        }
+        return lastAns;
+    }
+}
+
+// You are given string s. You need to remove the consecutive duplicates from the given string using a Stack.  
+// Examples:
+// Input: s = "aaaaaabaabccccccc"
+// Output: ababc
+// Explanation: The order is in the following way 6->a, 1->b, 2->a, 1->b, 7->c. So, only one element from each group will remain and rest all are removed. Therefore, final string will be:- ababc.
+class Solution {
+    // Function to remove consecutive duplicates from given string using Stack.
+    public static String removeConsecutiveDuplicates(String s) {
+        // Your code here
+        Stack<Character>stack=new Stack<>();
+        stack.push(s.charAt(0));
+        for(int i=0;i<s.length();i++){
+            char ch=s.charAt(i);
+          if( ch!=stack.peek()){
+              stack.push(ch);
+          }    
+        }
+        String lastAns="";
+        for(char charEle:stack){
+            lastAns+=charEle;
+        }
+        return lastAns;
+    }
+}
