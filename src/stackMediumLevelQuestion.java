@@ -27,3 +27,61 @@
         return FinalAnswer;
     }
 }
+//Two Stacks in an Arra
+// Your task is to implement  2 stacks in one array efficiently. You need to implement 4 methods.
+// twoStacks : Initialize the data structures and variables to be used to implement  2 stacks in one array.
+// push1 : pushes element into the first stack.
+// push2 : pushes element into the second stack.
+// pop1 : pops an element from the first stack and returns the popped element. If the first stack is empty, it should return -1.
+// pop2 : pops an element from the second stack and returns the popped element. If the second stack is empty, it should return -1.
+// Examples:
+// Input:
+// push1(2)
+// push1(3)
+// push2(4)
+// pop1()
+// pop2()
+// pop2()
+// Output: [3, 4, -1]
+// Explanation:
+// push1(2) the stack1 will be {2}
+// push1(3) the stack1 will be {2,3}
+// push2(4) the stack2 will be {4}
+// pop1()   the poped element will be 3 from stack1 and stack1 will be {2}
+// pop2()   the poped element will be 4 from stack2 and now stack2 is empty
+// pop2()   the stack2 is now empty hence returned -1.
+class twoStacks {
+     int []arr=new int[100];
+        int start=-1;
+        int end=100;
+    twoStacks() {    
+    }
+    // Function to push an integer into the stack1.
+    void push1(int x) {
+        // code here
+        if(start+1==end) return;
+        start++;
+        arr[start]=x;
+    }
+    // Function to push an integer into the stack2.
+    void push2(int x) {
+        // code here
+        if(start==end-1) return;
+        end--;
+        arr[end]=x;
+    }
+
+    // Function to remove an element from top of the stack1.
+    int pop1() {
+        // code here
+        if(start==-1) return -1;
+        return arr[start--];
+    }
+
+    // Function to remove an element from top of the stack2.
+    int pop2() {
+        // code here
+        if(end==100) return -1;
+        return arr[end++];
+    }
+}
