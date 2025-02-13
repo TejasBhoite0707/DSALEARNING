@@ -85,3 +85,48 @@ class twoStacks {
         return arr[end++];
     }
 }
+
+// Given a stack, the task is to sort it such that the top of the stack has the greatest element.
+// Example 1:
+// Input:
+// Stack: 3 2 1
+// Output: 3 2 1
+class GfG {
+    public Stack<Integer> sort(Stack<Integer> s) {
+        // add code here.
+        int [] arr=new int[s.size()];
+        int i=0;
+        while(!s.isEmpty()){
+            arr[i]=s.pop();
+            i++;
+        }
+        Arrays.sort(arr);
+        Stack<Integer>ans=new Stack<>();
+        for(int j=0;j<arr.length;j++){
+            ans.push(arr[j]);
+        }
+        
+        return ans;
+    }
+}
+//alternative way using recursion
+class GfG {
+    public Stack<Integer> sort(Stack<Integer> s) {
+        if (!s.isEmpty()) {
+            int temp = s.pop();
+            sort(s);
+            sortedInsert(s, temp);
+        }
+        return s;
+    }
+
+    private void sortedInsert(Stack<Integer> s, int element) {
+        if (s.isEmpty() || s.peek() <= element) {
+            s.push(element);
+        } else {
+            int temp = s.pop();
+            sortedInsert(s, element);
+            s.push(temp);
+        }
+    }
+}
