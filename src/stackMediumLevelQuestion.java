@@ -130,3 +130,32 @@ class GfG {
         }
     }
 }
+
+//Remove the balls
+// Input:
+// N = 3
+// color[] = {2, 2, 5}
+// radius[] = {3, 3, 4}
+// Output: 
+// 1
+// Explanation: 
+// First ball and second ball have same color 2 and 
+// same radius 3.So,after removing only one ball 
+// is left.It could not be removed from the array. 
+// Hence, the final array has length 1
+class Solution {
+    public static int finLength(int N, int[] color, int[] radius) {
+        // code here
+        Stack<Integer>stack=new Stack<>();
+        for(int i=0;i<N;i++){
+            if(!stack.isEmpty() && color[stack.peek()]==color[i] && radius[stack.peek()]==radius[i])
+            {
+                stack.pop();
+            }
+            else{
+                stack.push(i);
+            }
+        }
+        return stack.size();
+    }
+}
