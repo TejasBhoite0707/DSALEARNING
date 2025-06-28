@@ -53,10 +53,15 @@ obj.push(15);
 obj.push(16);
 obj.push(17);
 obj.showStack();
+
 System.out.println("Peek Element is "+obj.peek());
+
 obj.pop();
+
 obj.showStack();
+
 System.out.println("Peek Element is "+obj.peek());
+
 }
 
 }
